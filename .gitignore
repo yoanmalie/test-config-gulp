@@ -1,0 +1,12 @@
+/web
+
+# Node JS
+node_modules/*
+npm-debug.log
+
+# Editors
+.idea
+.vscode
+
+# macOS stuff
+.DS_Store
