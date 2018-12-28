@@ -1,1 +1,3 @@
-let b = new Map()
+const b = new Map()
+
+b.set("Hello", "world")
