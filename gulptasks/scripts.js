@@ -11,7 +11,9 @@ gulp.task("scripts:build", () => {
   pump([
     gulp.src(js.src + js.entry + "." + js.extensions),
     sourcemaps.init(),
-    babel(),
+    babel({
+      presets: [["@babel/preset-env"]],
+    }),
     rename({
       basename: js.name,
       suffix: js.suffix,
