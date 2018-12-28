@@ -1,24 +1,17 @@
 import gulp from "gulp"
-import pump from "pump"
-import rename from "gulp-rename"
-import sourcemaps from "gulp-sourcemaps"
 
-import babel from "gulp-babel"
+import webpack from "webpack"
+import webpackStream from "webpack-stream"
+import webpackConfig from "../webpack.config.js"
 
 import { js } from "../.gulpconfig"
 
 gulp.task("scripts:build", () => {
-  pump([
-    gulp.src(js.src + js.entry + "." + js.extensions),
-    sourcemaps.init(),
-    babel({
-      presets: [["@babel/preset-env"]],
-    }),
-    rename({
-      basename: js.name,
-      suffix: js.suffix,
-    }),
-    sourcemaps.write("."),
-    gulp.dest(js.dest),
-  ])
+  gulp
+    .src(js.src + js.entry + "." + js.extensions)
+    .pipe(
+      webpackStream(webpackConfig),
+      webpack,
+    )
+    .pipe(gulp.dest(js.dest))
 })
