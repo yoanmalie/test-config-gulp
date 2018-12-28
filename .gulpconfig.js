@@ -32,6 +32,7 @@ const css = {
   extensions: "scss",
   name: "styles",
   suffix: ".min",
+  autoprefixer: ["last 2 versions", "not ie 10"],
 }
 const js = {
   src: paths.source + paths.assets + "/js",

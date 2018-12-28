@@ -19,7 +19,9 @@ gulp.task("styles:build", () => {
       gulp.src(src),
       sourcemaps.init(),
       sass(),
-      autoprefixer(),
+      autoprefixer({
+        browsers: css.autoprefixer,
+      }),
       cssnano(),
       rename({
         basename: name,
