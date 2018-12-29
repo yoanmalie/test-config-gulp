@@ -1,6 +1,7 @@
 // Miscellaneous
 const options = {
-  env_dev: process.argv.includes("--dev"),
+  isDevelopment: process.argv.includes("--development") || process.env.NODE_ENV === "development",
+  isProduction: process.argv.includes("--production") || process.env.NODE_ENV === "production",
 }
 
 // Project information
